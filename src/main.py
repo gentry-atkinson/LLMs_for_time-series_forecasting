@@ -1,7 +1,9 @@
 import pandas as pd
+import torch
+
 
 def main():
-    pass
+    print(torch.cuda.is_available())
 
 if __name__ == '__main__':
     main()
