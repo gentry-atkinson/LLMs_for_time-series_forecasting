@@ -2,15 +2,15 @@ from transformers import  pipeline
 import torch
 import os
 
-#Exclude, commonly experiences bugs
+# Use, consistent with MIT work
 
 with open(os.path.join('src', 'token.txt')) as f:
     token = f.read().strip()
 
 pipe = pipeline(
     task="text-generation", 
-    model="databricks/dbrx-instruct",
-    tokenizer="databricks/dbrx-instruct",
+    model="meta-llama/Llama-3.3-70B-Instruct",
+    tokenizer="meta-llama/Llama-3.3-70B-Instruct",
     torch_dtype=torch.bfloat16,
     device_map='auto',
     token=token
