@@ -1,6 +1,7 @@
 #My additions
 venv/
 models/*
+data/*
 src/token.txt
 log.log
 

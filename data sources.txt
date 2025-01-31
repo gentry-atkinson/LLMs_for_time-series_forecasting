@@ -1,0 +1,19 @@
+MHEALTH: https://archive.ics.uci.edu/dataset/319/mhealth+dataset
+
+
+
+Directory Structure:
+
+data/
+  - MHEALTHDATASET
+    - mhealth_subject1.log
+    - mhealth_subject2.log
+    - mhealth_subject3.log
+    - mhealth_subject4.log
+    - mhealth_subject5.log
+    - mhealth_subject6.log
+    - mhealth_subject7.log
+    - mhealth_subject8.log
+    - mhealth_subject9.log
+    - mhealth_subject10.log
+    - README.txt
