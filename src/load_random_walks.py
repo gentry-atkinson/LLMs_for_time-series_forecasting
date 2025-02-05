@@ -1,6 +1,6 @@
 import numpy as np
 
-def load_random_walks(logger=None, series_length=100, num_walks=1000):
+def load_random_walks(logger=None, series_length=500, num_walks=1000):
     walk_array = np.zeros((num_walks, series_length), dtype=np.float16)
     for row, _ in enumerate(walk_array):
         val = np.random.normal(0, 1, None)

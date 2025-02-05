@@ -24,7 +24,7 @@ columns = [
     'label'
 ]
 
-def load_mhealth_samples(logger=None, series_length=100, step=50):
+def load_mhealth_samples(logger=None, series_length=500, step=250):
     converted_array = None
 
     # For all subjects
@@ -55,6 +55,8 @@ def load_mhealth_samples(logger=None, series_length=100, step=50):
         else:
             converted_array = np.concat([converted_array, set_array])
     # end For all subjects
+
+    np.random.shuffle(converted_array)
 
     if logger:
             logger.info(f"Final shape of converted MHealth array: {converted_array.shape}")
