@@ -4,6 +4,7 @@ models/*
 data/*
 src/token.txt
 log.log
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
