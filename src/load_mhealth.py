@@ -3,7 +3,6 @@ import os
 import numpy as np
 import pandas as pd
 
-
 data_dir = 'data'
 dataset_dir = 'MHEALTHDATASET'
 files = [
@@ -25,15 +24,48 @@ columns = [
     'label'
 ]
 
-def load_mhealth_samples():
-    df = pd.read_csv(
-        "data/MHEALTHDATASET/mHealth_subject1.log", 
-        sep='\t',
-        header=None,
-        names=columns
-    )
-    print(df['acc_chest_y'].head())
+def load_mhealth_samples(logger=None, series_length=100, step=50):
+    converted_array = None
 
+    # For all subjects
+    for set_num in range(1, 11):
+        df = pd.read_csv(
+            #f"data/MHEALTHDATASET/mHealth_subject{set_num}.log",
+            os.path.join('data', 'MHEALTHDATASET', f"mHealth_subject{set_num}.log"),
+            sep='\t',
+            header=None,
+            names=columns
+        )
+        if logger:
+            logger.info(f"MHealth DataFrame {set_num} shape: {df.shape}")
+        else:
+            print(f"MHealth DataFrame {set_num} shape: {df.shape}")
+        
+        # Number channels * samples per original signal, series_length
+        set_array = np.zeros(
+            (df.shape[1] * ((df.shape[0]-series_length)//step), series_length),
+            dtype=np.float16
+        )
+        # For every slice
+        for idx, start in enumerate(range(0, df.shape[0]-series_length, step)):
+            set_array[idx, :] = df[columns[idx%24]][start:start+series_length]
+        # end for every slice
+        if converted_array is None:
+            converted_array = set_array
+        else:
+            converted_array = np.concat([converted_array, set_array])
+    # end For all subjects
+
+    if logger:
+            logger.info(f"Final shape of converted MHealth array: {converted_array.shape}")
+    else:
+        print(f"Final shape of converted MHealth array: {converted_array.shape}")
+        print("Sanity checks")
+        print(f"Max of converted arrar: {np.max(converted_array)}")
+        print(f"Min of converted arrar: {np.min(converted_array)}")
+
+    return converted_array
+        
 
 if __name__ == '__main__':
     load_mhealth_samples()
