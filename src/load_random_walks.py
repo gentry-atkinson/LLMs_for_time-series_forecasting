@@ -26,5 +26,5 @@ if __name__ == '__main__':
     rw = load_random_walks()
 
     import matplotlib.pyplot as plt
-    plt.plot(range(100), rw[0, :])
+    plt.plot(range(500), rw[0, :])
     plt.savefig('random_walk.png')
