@@ -1,5 +1,9 @@
 MHEALTH: https://archive.ics.uci.edu/dataset/319/mhealth+dataset
 
+Monash Time Series Forecasting Repository: https://huggingface.co/datasets/Monash-University/monash_tsf
+ - weather
+ - tourism_monthly
+
 
 
 Directory Structure:

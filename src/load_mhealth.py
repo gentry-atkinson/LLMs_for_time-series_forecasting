@@ -62,7 +62,6 @@ def load_mhealth_samples(logger=None, series_length=500, step=250):
             logger.info(f"Final shape of converted MHealth array: {converted_array.shape}")
     else:
         print(f"Final shape of converted MHealth array: {converted_array.shape}")
-        print("Sanity checks")
         print(f"Max of converted arrar: {np.max(converted_array)}")
         print(f"Min of converted arrar: {np.min(converted_array)}")
 
