@@ -3,6 +3,8 @@ MHEALTH: https://archive.ics.uci.edu/dataset/319/mhealth+dataset
 Monash Time Series Forecasting Repository: https://huggingface.co/datasets/Monash-University/monash_tsf
  - weather
  - tourism_monthly
+ - london_smart_meters
+ - australian_electricity_demand
 
 
 
